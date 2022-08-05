@@ -39,7 +39,7 @@ exports.singup = (req, res) => {
 }
 
 // sign in
-exports.singin = (req, res) => {
+exports.signin = (req, res) => {
   User.findOne({
     where: {
       username: req.body.username,
@@ -51,7 +51,7 @@ exports.singin = (req, res) => {
       }
       const passwordIsValid = bycrypt.compareSync(
         req.body.password,
-        user.password
+        user.password,
       )
 
       if (!passwordIsValid) {

@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 const db = require('../models')
 
-const { ROLES } = db
+const { ROLES } = db.ROLES
 const User = db.user
 
 const checkDuplicateUserOrEmail = (req, res, next) => {
