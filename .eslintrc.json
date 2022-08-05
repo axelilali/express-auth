@@ -8,6 +8,9 @@
     "max-len": [
       "warn",
       100
+    ],
+    "consistent-return": [
+      "warn"
     ]
   }
 }
