@@ -1,7 +1,8 @@
-const db = require('../models');
+/* eslint-disable no-shadow */
+const db = require('../models')
 
-const { ROLES } = db;
-const User = db.user;
+const { ROLES } = db
+const User = db.user
 
 const checkDuplicateUserOrEmail = (req, res, next) => {
   // User
@@ -13,7 +14,7 @@ const checkDuplicateUserOrEmail = (req, res, next) => {
     if (user) {
       res.status(400).send({
         message: 'Failed! Username is already in use !',
-      });
+      })
     }
     // Email
     User.findOne({
@@ -24,12 +25,12 @@ const checkDuplicateUserOrEmail = (req, res, next) => {
       if (user) {
         res.status(400).send({
           message: 'Failed! Email already in use !',
-        });
+        })
       }
-      next();
-    });
-  });
-};
+      next()
+    })
+  })
+}
 
 const checkRolesExists = (req, res, next) => {
   if (req.body.roles) {
@@ -37,16 +38,16 @@ const checkRolesExists = (req, res, next) => {
       if (!ROLES.includes(req.body.roles[i])) {
         res.status(400).send({
           message: `Failed! Rol does not exists =${req.body.roles[i]}`,
-        });
+        })
       }
     }
   }
-  next();
-};
+  next()
+}
 
 const verifySignUp = {
   checkDuplicateUserOrEmail,
   checkRolesExists,
-};
+}
 
-module.exports = verifySignUp;
+module.exports = verifySignUp

@@ -1,3 +1,13 @@
 {
-  "extends": "airbnb"
+  "extends": "airbnb",
+  "rules": {
+    "semi": [
+      "error",
+      "never"
+    ],
+    "max-len": [
+      "warn",
+      100
+    ]
+  }
 }

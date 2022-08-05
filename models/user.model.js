@@ -8,4 +8,4 @@ module.exports = (sequelize, Sequelize) => sequelize.define('users', {
   password: {
     type: Sequelize.STRING,
   },
-});
+})

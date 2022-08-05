@@ -6,4 +6,4 @@ module.exports = (sequelize, Sequelize) => sequelize.define('roles', {
   name: {
     type: Sequelize.STRING,
   },
-});
+})
