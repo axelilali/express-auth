@@ -11,6 +11,29 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// sequelize configuration
+const db = require('./models');
+
+const Role = db.role;
+db.sequelize.sync();
+
+function initial() {
+  Role.create({
+    id: 1,
+    name: 'user',
+  });
+
+  Role.create({
+    id: 2,
+    name: 'moderator',
+  });
+
+  Role.create({
+    id: 3,
+    name: 'admin',
+  });
+}
+
 app.get('/', (req, res) => {
   res.json({ message: 'App works !' });
 });
